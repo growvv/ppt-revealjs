@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/sky.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>利用reveal.js制作PPT</section>
+				<section>
+					<h2>文本段落</h2>
+					<p>
+						<code>section</code>中的内容就是幻灯片的内容，你可以用h2标签表示title，p表示内容
+					</p>
+					<p class="fragment">
+						如果需要正文一段一段出现。可以使用fragment。
+					</p>
+				</section>
+				<section>
+					<h2>代码高亮</h2>
+					<p>reveal.js使用highlight.js来支持代码高亮。</p>
+					<pre>
+						<code data-trim>
+  							console.log('hello reveal.js!');
+						</code>
+					</pre>
+					<p class="fragment">按下s键，就可以调出注释页面，注释页面包含了当前幻灯片，下一章幻灯片，注释，以及幻灯片播放时间。</p>
+					<aside class="notes">
+  						这里是注释。请忽略
+					</aside>
+				</section>
+				<section data-markdown
+						data-separator="---"
+						data-separator-vertical="--"
+						data-separator-notes="^Note:">
+					<script type="text/template">
+						## markdown实现
+
+						使用markdown实现内容时，需要对section标示添加data-markdown属性，然后将markdown内容写到一个text/template脚本中。
+
+						--
+
+						[百度一下](https://www.baidu.com)
+
+
+						数学公式：
+
+						$ax^2+bx+c=0$
+
+						Note:
+						这里是注释。
+					</script>
+				</section>
+				<section data-markdown="md/摸鱼.md"
+				         data-separator="^\n\n\n"
+				         data-separator-vertical="^\n\n"
+				         data-separator-notes="^Note:"
+				         data-charset="utf-8"
+
+				         data-separator-vertical="--">
+				</section>
+				<section>
+					<h2>插入视频</h2>
+					<video data-autoplay class="stretch" src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></video>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				hash: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/highlight/highlight.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					//数学公式
+					{ src: 'plugin/math/math.js', async: true },
+					//点击放缩
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+				],
+			});
+
+			// 每 5 秒自动切换下一张幻灯片
+			// Reveal.configure({
+  			// 		autoSlide: 5000
+			// });
+
+		</script>
+	</body>
+</html>
